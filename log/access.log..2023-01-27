@@ -1,0 +1,8 @@
+[2023-01-27T21:53:11.080] [INFO] Main - GOGOGO !!!
+[2023-01-27T22:48:51.618] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫 video.
+[2023-01-27T22:48:51.811] [ERROR] Traffic-Maker - browser.newPage: Target closed
+    at async Object.playYuHsuanCodeVideo (/Users/jeff/Downloads/tiny-job/yt-traffic-maker/src/traffic-maker.ts:23:22) {
+  name: 'Error'
+}
+[2023-01-27T22:48:59.971] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫 video.
+[2023-01-27T22:49:28.075] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫 video.

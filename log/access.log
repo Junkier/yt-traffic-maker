@@ -1,0 +1,29 @@
+[2023-01-29T15:43:01.429] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫 video.
+[2023-01-29T15:44:55.756] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫 video.
+[2023-01-29T15:45:00.982] [ERROR] Traffic-Maker - page.evaluate: TypeError: Cannot read properties of undefined (reading 'click')
+    at eval (eval at evaluate (:197:30), <anonymous>:3:21)
+    at UtilityScript.evaluate (<anonymous>:199:17)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at Object.playYuHsuanCodeVideo (/Users/jeff/Downloads/tiny-job/yt-traffic-maker/src/traffic-maker.ts:28:20)
+[2023-01-29T15:48:08.753] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫 video.
+[2023-01-29T15:49:29.683] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫 video.
+[2023-01-29T15:58:43.687] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫 video.
+[2023-01-29T16:13:04.963] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫 video.
+[2023-01-29T16:13:04.965] [INFO] Traffic-Maker - Start to play 工程師學習地圖！！！ video.
+[2023-01-29T16:18:48.573] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫
+[2023-01-29T16:18:48.574] [INFO] Traffic-Maker - Start to play 工程師學習地圖！！！
+[2023-01-29T16:18:57.119] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫
+[2023-01-29T16:18:57.121] [INFO] Traffic-Maker - Start to play 工程師學習地圖！！！
+[2023-01-29T16:25:28.949] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫
+[2023-01-29T16:25:28.950] [INFO] Traffic-Maker - Start to play 工程師學習地圖！！！
+[2023-01-29T16:27:37.262] [ERROR] Traffic-Maker - locator.click: Target closed
+=========================== logs ===========================
+waiting for getByText('open new tab')
+============================================================
+    at Object.playYuHsuanCodeVideo (/Users/jeff/Downloads/tiny-job/yt-traffic-maker/src/traffic-maker.ts:23:46) {
+  name: 'Error'
+}
+[2023-01-29T16:28:48.868] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫
+[2023-01-29T16:28:48.874] [INFO] Traffic-Maker - Start to play 工程師學習地圖！！！
+[2023-01-29T16:46:32.001] [INFO] Traffic-Maker - Start to play 35min 簡單認識 SQL & NoSQL 資料庫
+[2023-01-29T16:46:32.003] [INFO] Traffic-Maker - Start to play 工程師學習地圖！！！

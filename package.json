@@ -1,0 +1,32 @@
+{
+  "name": "jetshop-ops",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.19.1",
+    "@babel/preset-typescript": "^7.18.6",
+    "@playwright/test": "^1.26.0",
+    "@types/jest": "^29.0.3",
+    "jest": "^29.0.3",
+    "ts-babel": "^6.1.7",
+    "ts-jest": "^29.0.2",
+    "typescript": "^4.8.3"
+  },
+  "scripts": {
+    "op:dev": "tsc --watch",
+    "op:test": "jest --coverage",
+    "op:build": "tsc",
+    "op:generate": "node dist/index.js",
+    "op:generate:with-zip": "node dist/index.js --with-zip"
+  },
+  "dependencies": {
+    "archiver": "^5.3.1",
+    "dotenv": "^16.0.2",
+    "log4js": "^6.6.1",
+    "moment": "^2.29.4",
+    "mysql2": "^2.3.3",
+    "playwright": "^1.30.0",
+    "ts-node": "^10.9.1"
+  }
+}
