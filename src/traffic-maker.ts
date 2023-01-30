@@ -55,6 +55,10 @@ const playYuHsuanCodeVideo = async (videos : Array<Video>)=>{
                     },2500);
                 });
 
+
+                // [Issue]
+                // a. docker in Linux 會在 20min 後自動 exit !?
+                // b. 無法顯示成功！？
                 // 5. close the page if video is finished
                 await page.waitForFunction(() =>{
                     console.log("waitForFunction");

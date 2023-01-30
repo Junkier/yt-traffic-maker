@@ -77,6 +77,10 @@ const videos: Array<Video> = [
     {
         name : "Node.js 大入門家(5/5) RESTful API 設計",
         url  : "5bFDUjKbSbs",
+    },
+    {
+        name : "Node.js 大入門家(1/5) 零基礎語法全教學",
+        url  : "GWUiKuzyDUg",
     }
 ];
 
