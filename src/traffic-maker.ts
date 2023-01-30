@@ -1,83 +1,87 @@
 import { chromium } from "playwright";
 import log4js from "log4js";
 
-
 import { Video } from "./videos";
-
 import { youtubeBaseLink } from "./constant";
 
-
 const logger = log4js.getLogger("Traffic-Maker");
+
+const sleep = (ms: number) => new Promise( r => setTimeout(r , ms));
 
 const playYuHsuanCodeVideo = async (videos : Array<Video>)=>{
     try{
 
         const browser = await chromium.launch({
-            headless: false
+            // headless: false
         });
         const context = await browser.newContext();
 
-        videos.map(async (video)=>{
+        let missions = videos.map(async (video,i)=>{
+            try{
 
-            const link = `${youtubeBaseLink}/${video.url}`;
-        
-            logger.info(`Start to play ${video.name}`);
+                // It may cause something stuck if everyone is running at the same time.
+                await sleep(15* 1000 * Math.floor(i/ 3));
 
-            const page = await context.newPage();
-        
-            await page.goto(link,{"waitUntil" : "networkidle"});
+                const link = `${youtubeBaseLink}/${video.url}`;
+            
+                logger.info(`Start to play ${video.name}`);
 
+                const page = await context.newPage();
+            
+                await page.goto(link,{"waitUntil" : "networkidle"});
 
-            await page.evaluate(async ()=>{
+                await page.evaluate(async ()=>{
 
-                // 0. Get the video instance
-                let videoPlayer = document.getElementsByTagName("video")[0];
+                    // 0. Get the video instance
+                    let videoPlayer = document.getElementsByTagName("video")[0];
 
-                // 1. Click play button
-                await videoPlayer.play();
+                    // 1. Click play button
+                    await videoPlayer.play();
 
-                // 2. Cancel voice
-                videoPlayer.volume = 0;
+                    // 2. Cancel voice
+                    // 3. Turning playing speed to 2x
+                    setInterval(function(){
+                        if(videoPlayer.playbackRate !== 2) videoPlayer.playbackRate = 2;
+                        if(videoPlayer.volume !== 0) videoPlayer.volume = 0;
+                    },2500)
 
-                // 3. Turning playing speed to 2x
-                videoPlayer.playbackRate = 2;
-
-                // 4. Close the page if video is finished
-                videoPlayer.addEventListener('ended', async (event) => {
-
-                    console.log("Video is finished !!!")
-
-                    await page.close();
+                    // 4. Check that could we skip the ads. (loop)
+                    let checkAdsLoop = setInterval(function(){
+                        let adsBtn =  document.getElementsByClassName("ytp-ad-skip-button")[0] as HTMLElement;
+                        if(adsBtn){
+                            adsBtn.click();
+                            console.log("Skip Ads !!!");
+                        }
+                    },2500);
                 });
 
-                
-                // 5. Check is the video stop (loop)
-                // [Deprecated ?]
-                // let checkPlayingLoop = setInterval(function(){
-                //     if(videoPlayer.paused) videoPlayer.play()
-                // },5000);
+                // 5. close the page if video is finished
+                await page.waitForFunction(() =>{
+                    console.log("waitForFunction");
+                    return document.getElementsByTagName("video")[0].paused;
+                }, null , {
+                    polling : 3 * 1000,
+                    timeout : 12 * 60 * 60 * 1000 // 12hr
+                });
 
+                await page.close();
 
-                // 6. Check that could we skip the ads. (loop)
-                let checkAdsLoop = setInterval(function(){
-                    let adsBtn =  document.getElementsByClassName("ytp-ad-skip-button")[0] as HTMLElement;
-                    if(adsBtn){
-                        adsBtn.click();
-                        console.log("Skip Ads !!!");
-                    }
-                },5000);
+                logger.info(`${video.name} is done.`);
 
+                return "done.";
 
-            });
+            } catch(err){
+                return err;
+            };
         });
 
-    
-        // browser.close();
+        await Promise.all(missions);
+
+        logger.info("All video is done.");
     
     } catch(err){
         logger.error(err);
-    }
-
+    };
 
 };
 
